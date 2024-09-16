@@ -8,5 +8,5 @@ app.use(express.json());
 app.use('/User', user_router);
 
 app.listen(port, () => {
-    console.log(`Server running at port $${port}.`);
+    console.log(`Server running at port ${port}.`);
 });
