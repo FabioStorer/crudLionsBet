@@ -1,5 +1,4 @@
 import db from '../db.js';
-
 const Schema = db.Schema
 
 const rechargeSchema = new Schema({
@@ -9,8 +8,8 @@ const rechargeSchema = new Schema({
     },
     status: {
         type: Schema.Types.String,
-        enum: ['Finalizada', "Pendente", 'Recusada', 'Cancelada'],
-        default: 'Pendente'
+        enum: ['Finished', "Pending", 'Refused', 'Cancelled'],
+        default: 'Pending'
     }
 });
 

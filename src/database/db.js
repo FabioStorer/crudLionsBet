@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
-const mongoDB = 'mongodb://localhost:27017/';
-const database = 'lionsbet';
 
 const main = async () => {
     try {
-        await mongoose.connect(mongoDB + database);
+        await mongoose.connect(process.env.MONGODB + process.env.DATABASE);
         console.log('Successfully connected.');
     } catch (error) {
         console.log(error);
