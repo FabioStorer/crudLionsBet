@@ -1,20 +1,16 @@
 import db from '../db.js';
+import betSchema from '../bet_schema.js';
 const Schema = db.Schema;
 
 const jackpotBetSchema = new Schema({
-    bet: {
-        type: Schema.Types.ObjectId,
-        ref: 'Bet',
-        required: true
-    },
+    bet: betSchema,
     numbers: {
-        type: Schema.Types.Number,
-        min: 1,
-        max: 9,
+        type: [Schema.Types.Number],
+        validate: (v) => v.length == 3,
         required: true
     }
 });
 
-const Jackpot = db.model('JackpotBet', jackpotBetSchema);
+const JackpotBet = db.model('JackpotBet', jackpotBetSchema);
 
-export default Jackpot;
+export default JackpotBet;

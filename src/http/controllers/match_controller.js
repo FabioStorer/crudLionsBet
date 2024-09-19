@@ -29,7 +29,7 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const content = await Match.findByIdAndUpdate(req.params.id).exec();
+        const content = await Match.findByIdAndUpdate(req.params.id, req.body).exec();
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -38,8 +38,8 @@ const update = async (req, res) => {
 
 const destroy = async (req, res) => {
     try {
-        const content = await Match.findByIdAndDelete(req.params.id).exec();
-        res.json(content);
+        await Match.findByIdAndDelete(req.params.id).exec();
+        res.json();
     } catch (error) {
         res.status(400).json(error);
     }

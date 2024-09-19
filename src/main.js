@@ -18,5 +18,5 @@ app.use('/MatchBet', matchBet_router);
 app.use('/Match', match_router);
 
 app.listen(process.env.API_PORT, () => {
-    console.log(`Server running.`);
+    console.log(`Server running at port ${process.env.API_PORT}.`);
 });

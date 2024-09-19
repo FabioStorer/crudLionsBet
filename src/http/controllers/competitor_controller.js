@@ -11,8 +11,8 @@ const store = async (req, res) => {
 
 const index = async (req, res) => {
     try {
-        await Competitor.find(req.query).exec();
-        res.json();
+        const content = await Competitor.find(req.query).exec();
+        res.json(content);
     } catch (error) {
         res.status(400).json();
     }
@@ -20,8 +20,8 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        await Competitor.findById(req.params.id).exec();
-        res.json();
+        const content = await Competitor.findById(req.params.id).exec();
+        res.json(content);
     } catch (error) {
         res.status(400).json();
     }
@@ -29,8 +29,8 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        await Competitor.findByIdAndUpdate(req.params.id).exec();
-        res.json();
+        const content = await Competitor.findByIdAndUpdate(req.params.id, req.body).exec();
+        res.json(content);
     } catch (error) {
         res.status(400).json();
     }

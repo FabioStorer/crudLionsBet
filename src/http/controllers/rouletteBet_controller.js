@@ -1,4 +1,4 @@
-import Roulette from '../../database/models/rouletteBet_model.js';
+import RouletteBet from '../../database/models/rouletteBet_model.js';
 
 const store = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ const store = async (req, res) => {
             ? (req.body.bet.status = 'Winner')
             : (req.body.bet.status = 'Loser')
 
-        await Roulette.create(req.body);
+        await RouletteBet.create(req.body);
         res.json();
     } catch (error) {
         res.status(400).json(error);
@@ -18,7 +18,7 @@ const store = async (req, res) => {
 
 const index = async (req, res) => {
     try {
-        const content = await Roulette.find(req.query).exec();
+        const content = await RouletteBet.find(req.query).exec();
         res.json(content);
     } catch (error) {
         res.status(400).json(error)
@@ -27,7 +27,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const content = await Roulette.findById(req.params.id).exec();
+        const content = await RouletteBet.findById(req.params.id).exec();
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -36,8 +36,8 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const content = await Roulette.findByIdAndUpdate(req.params.id).exec();
-        res.json();
+        const content = await RouletteBet.findByIdAndUpdate(req.params.id).exec();
+        res.json(content);
     } catch (error) {
         res.status(400).json(error);
     }

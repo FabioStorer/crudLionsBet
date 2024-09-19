@@ -14,20 +14,16 @@ const betSchema = new Schema({
     },
     status: {
         type: Schema.Types.String,
-        enum: ['Winner', 'Loser', 'Draw'],
+        enum: ['Win!', 'Lost!', 'Draw'],
         required: true
     },
     value: {
         type: Schema.Types.Number,
         min: 25,
         required: true
-    },
-    date: {
-        type: Schema.Types.Date,
-        required: true
     }
 }, {
     timestamps: true
 });
 
-export default Bet;
+export default betSchema;

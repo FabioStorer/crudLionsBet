@@ -38,7 +38,7 @@ const update = async (req, res) => {
 
 const destroy = async (req, res) => {
     try {
-        const content = await User.findByIdAndDelete(req.params.id).exec();
+        await User.findByIdAndDelete(req.params.id).exec();
         res.json();
     } catch (error) {
         res.status(400).json(error);

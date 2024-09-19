@@ -29,7 +29,7 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const content = await MatchBet.findByIdAndUpdate(req.params.id).exec();
+        const content = await MatchBet.findByIdAndUpdate(req.params.id, req.body).exec();
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
